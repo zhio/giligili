@@ -11,7 +11,7 @@ import (
 
 // DB 数据库链接单例
 var DB *gorm.DB
-
+var DB2 *gorm.DB
 // Database 在中间件中初始化mysql链接
 func Database(connString string) {
 	db, err := gorm.Open("mysql", connString)
@@ -29,6 +29,5 @@ func Database(connString string) {
 	db.DB().SetConnMaxLifetime(time.Second * 30)
 
 	DB = db
-
 	migration()
 }
